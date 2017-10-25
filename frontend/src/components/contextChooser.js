@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { Card, Button, CardImg, CardTitle, CardText, CardColumns,
-  CardSubtitle, CardBody } from 'reactstrap';
+import { 
+  Card, 
+  CardImg, 
+  CardColumns,
+} from 'reactstrap';
 import previdencia from '../images/previdencia.svg';
 import trabalho from '../images/trabalho.svg';
 import receita from '../images/receita.svg';
@@ -11,6 +14,10 @@ import midias_sociais from '../images/midias_sociais.svg';
 import programas_sociais from '../images/programas_sociais.svg';
 import cidadao_360 from '../images/cidadao_360.svg';
 
+import {
+  Link,
+} from 'react-router-dom'
+
 class ContextChooser extends Component {
   testEvent() {
     console.log("Elemento clicado.");
@@ -19,33 +26,51 @@ class ContextChooser extends Component {
     return (
       <div className="center">
         <CardColumns>
-          <Card className="hvr-buzz-out">
-            <CardImg top width="100%" src={previdencia} alt="Previdência" />
-          </Card>
-          <Card>
-            <CardImg width="50%" src={trabalho} alt="Trabalho" />
-          </Card>
-          <Card>
-            <CardImg width="50%" src={receita} alt="Receita" />
-          </Card>
-          <Card>
-            <CardImg width="50%" src={justica} alt="Receita" />
-          </Card>
-          <Card>
-            <CardImg width="50%" src={cidadao_360} alt="Cidadão 360" />
-          </Card>
-          <Card>
-            <CardImg width="50%" src={saude} alt="Saúde" />
-          </Card>
-          <Card>
-            <CardImg width="50%" src={educacao} alt="Educação" />
-          </Card>
-          <Card>
-            <CardImg width="50%" src={midias_sociais} alt="Mídias Sociais" />
-          </Card>
-          <Card>
-            <CardImg width="50%" src={programas_sociais} alt="Programas Sociais" />
-          </Card>
+          <Link to="/details/previdencia/">
+            <Card className="context-card">
+              <CardImg top width="100%" src={previdencia} alt="Previdência" />
+            </Card>
+          </Link>
+          <Link to="/details/trabalho/">
+            <Card className="context-card">
+              <CardImg width="100%" src={trabalho} alt="Trabalho" />
+            </Card>
+          </Link>
+          <Link to="/details/receita/">
+            <Card className="context-card">
+              <CardImg width="100%" src={receita} alt="Receita" />
+            </Card>
+          </Link>
+          <Link to="/details/justica/">
+            <Card className="context-card">
+              <CardImg width="100%" src={justica} alt="Justiça" />
+            </Card>
+          </Link>
+          <Link to="/details/cidadao-360/">
+            <Card className="context-card">
+              <CardImg width="100%" src={cidadao_360} alt="Cidadão 360" />
+            </Card>
+          </Link>
+          <Link to="/details/saude/">
+            <Card className="context-card">
+              <CardImg width="100%" src={saude} alt="Saúde" />
+            </Card>
+          </Link>
+          <Link to="/details/educacao/">
+            <Card className="context-card">
+              <CardImg width="100%" src={educacao} alt="Educação" />
+            </Card>
+          </Link>
+          <Link to="/details/midias-sociais/">
+            <Card className="context-card">
+              <CardImg width="100%" src={midias_sociais} alt="Mídias Sociais" />
+            </Card>
+          </Link>
+          <Link to="/details/programas-sociais/">
+            <Card className="context-card">
+              <CardImg width="100%" src={programas_sociais} alt="Programas Sociais" />
+            </Card>
+          </Link>
         </CardColumns>
       </div>
     );
