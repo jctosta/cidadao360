@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="247px" height="165px" viewBox="0 0 247 165" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>educacao</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#D3D3D3" offset="0%"></stop>
+            <stop stop-color="#A9A9A9" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="0" y="0" width="247" height="165"></rect>
+    </defs>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="educacao">
+            <mask id="mask-3" fill="white">
+                <use xlink:href="#path-2"></use>
+            </mask>
+            <use id="Mask" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+            <rect id="Rectangle" fill-opacity="0.1" fill="#000000" mask="url(#mask-3)" x="0" y="14" width="151" height="38"></rect>
+            <text id="Educação" mask="url(#mask-3)" font-family="Roboto-Light, Roboto" font-size="30" font-weight="300" fill="#FFFFFF">
+                <tspan x="12.1074219" y="42">Educação</tspan>
+            </text>
+            <g id="007-bookshelf" mask="url(#mask-3)">
+                <g transform="translate(134.000000, 42.000000)">
+                    <path d="M26.3334159,17 L43.6665841,17 C46.0628131,17 48,18.959204 48,21.3721814 L48,108.636296 C48,111.049273 46.0628131,113 43.6665841,113 L26.3334159,113 C23.9371869,113 22,111.049273 22,108.636296 L22,21.3681922 C22,18.9597027 23.9371869,17 26.3334159,17 Z" id="Shape" fill="#3F95D4" fill-rule="nonzero"></path>
+                    <path d="M30.6666667,108.636296 L30.6666667,21.3681922 C30.6666667,18.9597027 32.6038167,17 35,17 L26.3333333,17 C23.93715,17 22,18.959204 22,21.3681922 L22,108.636296 C22,111.049273 23.93715,113 26.3333333,113 L35,113 C32.6038167,113 30.6666667,111.045284 30.6666667,108.636296 Z" id="Shape" fill="#367FB4" fill-rule="nonzero"></path>
+                    <polygon id="Shape" fill="#D99666" fill-rule="nonzero" points="0 113 140 113 140 139 0 139"></polygon>
+                    <polygon id="Shape" fill="#F7CB8B" fill-rule="nonzero" points="22 83 48 83 48 100 22 100"></polygon>
+                    <path d="M52.3750625,0 L78.6249375,0 C81.0441956,0 83,1.95135855 83,4.35467339 L83,108.65377 C83,111.057085 81.0441956,113 78.6249375,113 L52.3750625,113 C49.9558044,113 48,111.057085 48,108.65377 L48,4.35070015 C48,1.95135855 49.9558044,0 52.3750625,0 Z" id="Shape" fill="#349886" fill-rule="nonzero"></path>
+                    <path d="M61,95 L70,95 L70,34.3325631 L61,34.3325631 C61,34.3325631 61,95 61,95 Z M61,17 L61,25.6662815 L70,25.6662815 L70,17 L61,17 Z" id="Shape" fill="#9ACCC3" fill-rule="nonzero"></path>
+                    <path d="M87.3750625,26 L113.624938,26 C116.044196,26 118,27.9530846 118,30.3500746 L118,108.649925 C118,111.055366 116.044196,113 113.624938,113 L87.3750625,113 C84.9558044,113 83,111.055366 83,108.649925 L83,30.3500746 C83,27.9530846 84.9558044,26 87.3750625,26 Z" id="Shape" fill="#E2574C" fill-rule="nonzero"></path>
+                    <rect id="Rectangle-path" fill="#D2AD77" fill-rule="nonzero" x="22" y="83" width="9" height="17"></rect>
+                    <path d="M56.6666667,108.653292 L56.6666667,4.35068103 C56.6666667,1.95184663 58.6038167,0 61,0 L52.3333333,0 C49.93715,0 48,1.95134997 48,4.35068103 L48,108.653789 C48,111.057093 49.93715,113 52.3333333,113 L61,113 C58.6038167,112.999503 56.6666667,111.052623 56.6666667,108.653292 Z" id="Shape" fill="#2C8172" fill-rule="nonzero"></path>
+                    <path d="M91.6666667,108.649925 L91.6666667,30.3500746 C91.6666667,27.9530846 93.6038167,26 96,26 L87.3333333,26 C84.93715,26 83,27.9530846 83,30.3500746 L83,108.649925 C83,111.055366 84.93715,113 87.3333333,113 L96,113 C93.6038167,113 91.6666667,111.051389 91.6666667,108.649925 Z" id="Shape" fill="#C04A40" fill-rule="nonzero"></path>
+                    <path d="M83,70 L118,70 L118,52.6663365 L83,52.6663365 L83,70 Z M83,44 L83,48.3418341 L118,48.3418341 L118,44 L83,44 Z" id="Shape" fill="#F7CB8B" fill-rule="nonzero"></path>
+                    <g id="Group" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(83.000000, 43.000000)">
+                        <rect id="Rectangle-path" fill="#D2AD77" fill-rule="nonzero" x="0.133" y="0.2545" width="8.751" height="4.384"></rect>
+                        <rect id="Rectangle-path" fill="#D2AD77" fill-rule="nonzero" x="0.133" y="9.005" width="8.751" height="17.5015"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

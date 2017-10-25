@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="247px" height="165px" viewBox="0 0 247 165" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>programas_sociais</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#DB7093" offset="0%"></stop>
+            <stop stop-color="#FFC0CB" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="0" y="0" width="247" height="165"></rect>
+    </defs>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="programas_sociais">
+            <mask id="mask-3" fill="white">
+                <use xlink:href="#path-2"></use>
+            </mask>
+            <use id="Mask" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+            <rect id="Rectangle" fill-opacity="0.1" fill="#000000" mask="url(#mask-3)" x="0" y="14" width="220" height="38"></rect>
+            <text id="Programas-Sociais" mask="url(#mask-3)" font-family="Roboto-Light, Roboto" font-size="25" font-weight="300" fill="#FFFFFF">
+                <tspan x="5.01538086" y="40">Programas Sociais</tspan>
+            </text>
+            <g id="009-heart" mask="url(#mask-3)" fill-rule="nonzero">
+                <g transform="translate(134.000000, 62.000000)" id="Shape">
+                    <path d="M95.8115675,9.26619901 C80.2617689,-6.46952296 64.8432904,0.406622738 52.5010787,11.6311315 C40.1524886,0.406622738 24.8623286,-6.59251464 9.18758834,9.26619901 C-3.03305852,21.6234459 -3.09196496,41.4816667 9.18758834,53.7724829 C52.366757,93.0698416 52.3566266,92.9999945 52.3566266,92.9999945 C52.3566266,92.9999945 52.4189099,93.1294394 95.8081907,53.7721033 C108.094498,41.4812871 108.032214,21.6234459 95.8115675,9.26619901 Z" fill="#E2574C"></path>
+                    <path d="M52.0299062,11.594315 L52,11.5711221 L52,93 C52.6988202,92.4076324 57.8370037,87.9260937 95.7277476,53.8026001 C108.120639,41.4955732 108.060827,21.6056322 95.7277476,9.22864653 C80.0387416,-6.5318305 64.4856383,0.355298733 52.0299062,11.594315 Z" fill="#CB4E44"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
