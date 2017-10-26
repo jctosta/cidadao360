@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
-import { Timeline, TimelineEvent } from 'react-event-timeline'
-import { Container, TabContent, TabPane, Nav, NavItem, NavLink, Card, CardHeader, CardBody, Button, CardTitle, CardText, Row, Col, Badge } from 'reactstrap';
+import { 
+  Timeline, 
+  TimelineEvent } from 'react-event-timeline'
+import { 
+  TabContent, 
+  TabPane, 
+  Nav, 
+  NavItem, 
+  NavLink, 
+  Card, 
+  CardHeader, 
+  CardBody,
+  Row, 
+  Col, 
+  Badge } from 'reactstrap';
 import classnames from 'classnames';
 import PersonDetails from './personDetails';
 var ReactMarkdown = require('react-markdown');
-
 
 class ContextDetails extends Component {
 
@@ -69,9 +81,10 @@ class ContextDetails extends Component {
       // Get events list
       let timelineComponents = [];
       if (eventsCount > 0) {
-        this.props.contextData.eventos.forEach((ev) => {
+        this.props.contextData.eventos.forEach((ev, idx, arr) => {
           timelineComponents.push(
             <TimelineEvent
+              key={idx}
               title={ev.titulo}
               createdAt={ev.data_hora}
               style={{ fontSize: 16 }}
@@ -84,9 +97,10 @@ class ContextDetails extends Component {
       }
       let notificationsTimelineComponents = [];
       if (notificationsCount > 0) {
-        this.props.contextData.notificacoes.forEach((not) => {
+        this.props.contextData.notificacoes.forEach((not, idx, arr) => {
           notificationsTimelineComponents.push(
             <TimelineEvent
+              key={idx}
               title={not.titulo}
               titleStyle={{ fontWeight: "bold" }}
               createdAt={not.data_hora}
@@ -100,9 +114,9 @@ class ContextDetails extends Component {
       let cardInfo = this.props.contextData.informacoes;
       let cardInfoList = [];
       if (cardInfo !== undefined && cardInfo !== null) {
-        cardInfo.forEach((c) => {
+        cardInfo.forEach((c, idx, arr) => {
           cardInfoList.push(
-            <tr>
+            <tr key={idx}>
               <th>{c.label}</th>
               <td>{c.valor}</td>
             </tr>);
@@ -112,7 +126,7 @@ class ContextDetails extends Component {
       return (
         <div>
           <h3>{this.props.contextData.nome}</h3>
-          <p class="lead">Notificações e eventos do contexto {this.props.contextData.nome}</p>
+          <p className="lead">Notificações e eventos do contexto {this.props.contextData.nome}</p>
 
           <Nav pills fill>
             <NavItem>
@@ -150,7 +164,9 @@ class ContextDetails extends Component {
                     </CardHeader>
                     <CardBody>
                       <table className="table table-sm">
-                        {cardInfoList}
+                        <tbody>
+                          {cardInfoList}
+                        </tbody>
                       </table>
                     </CardBody>
                   </Card>

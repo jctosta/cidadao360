@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { Col, Row, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import {
+  Button, 
+  Form, 
+  FormGroup, 
+  Label, 
+  Input } from 'reactstrap';
 import logo_cidadao from '../images/logo-cidadao-vertical.svg';
 
 class LoginScreen extends Component {
-  constructor(props) {
-    super(props);
-  }
-  
   render() {
     return (
       <Form className="center login-form" onSubmit={this.props.login}>

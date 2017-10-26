@@ -1,5 +1,16 @@
 import React, { Component } from 'react';
-import { Container, TabContent, TabPane, Nav, NavItem, NavLink, Card, CardHeader, CardBody, Button, CardTitle, CardText, Row, Col, Badge } from 'reactstrap';
+import { 
+  TabContent, 
+  TabPane, 
+  Nav, 
+  NavItem, 
+  NavLink, 
+  Card, 
+  CardHeader, 
+  CardBody, 
+  Row, 
+  Col, 
+  Badge } from 'reactstrap';
 import { Timeline, TimelineEvent } from 'react-event-timeline'
 import classnames from 'classnames';
 
@@ -13,7 +24,6 @@ class PersonDetails extends Component {
     this.state = {
       activeTab: '1'
     };
-
   }
 
   toggle(tab) {
@@ -25,12 +35,12 @@ class PersonDetails extends Component {
   }
 
   render() {
-    let dadosPessoais = this.props.contextData;
+    let dadosPessoais = this.props.contextData.dadosPessoais;
 
     let dadosPessoaisTable = [];
-    this.props.contextData.dadosPessoais.forEach((el) => {
+    dadosPessoais.forEach((el, idx, arr) => {
       dadosPessoaisTable.push(
-        <tr>
+        <tr key={idx}>
           <th>{el.label}</th>
           <td>{el.valor}</td>
         </tr>
@@ -62,9 +72,10 @@ class PersonDetails extends Component {
     // Get events list
     let timelineComponents = [];
     if (eventsCount > 0) {
-      allEvents.forEach((ev) => {
+      allEvents.forEach((ev, idx, arr) => {
         timelineComponents.push(
           <TimelineEvent
+            key={idx}
             title={ev.titulo}
             createdAt={ev.data_hora}
             style={{ fontSize: 16 }}
@@ -77,14 +88,14 @@ class PersonDetails extends Component {
     }
     let notificationsTimelineComponents = [];
     if (notificationsCount > 0) {
-      allNotifications.forEach((not) => {
+      allNotifications.forEach((not, idx, arr) => {
         notificationsTimelineComponents.push(
           <TimelineEvent
+            key={idx}
             title={not.titulo}
             titleStyle={{ fontWeight: "bold" }}
             createdAt={not.data_hora}
             style={{ fontSize: 16 }}
-            titleStyle={{ fontWeight: 'bold' }}
             iconColor="#03a9f4"
             icon={<i className="material-icons md-18">notifications</i>}
           ><ReactMarkdown source={not.descricao} /></TimelineEvent>
@@ -96,7 +107,7 @@ class PersonDetails extends Component {
 
       <div>
         <h3>{this.props.contextData.nome}</h3>
-        <p class="lead">Resumo das informações</p>
+        <p className="lead">Resumo das informações</p>
 
         <Nav pills fill>
           <NavItem>
@@ -134,7 +145,9 @@ class PersonDetails extends Component {
                   </CardHeader>
                   <CardBody>
                     <table className="table table-sm">
-                      {dadosPessoaisTable}
+                      <tbody>
+                        {dadosPessoaisTable}
+                      </tbody>
                     </table>
                   </CardBody>
                 </Card>

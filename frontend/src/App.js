@@ -7,7 +7,7 @@ import {
   Route,
   Link,
   NavLink,
-  Redirect
+  Redirect,
 } from 'react-router-dom'
 
 import response from './mock/template_service.json';
@@ -23,75 +23,15 @@ import {
   NavbarBrand, 
   Nav, 
   NavItem,
-  NavLink as NavLinkBootstrap,
-  Jumbotron,
-  Button
 } from 'reactstrap';
+
+//NavLink as NavLinkBootstrap,
 
 // Componentes da Aplicação
 import ContextChooser from './components/contextChooser';
 import ContextDetails from './components/contextDetails';
 import LoginScreen from './components/login';
 import Project from './components/projeto';
-
-const Context = () => (
-  <ContextChooser data={this.state.cidadao} />
-);
-
-const ContextDetailsComponent = ({ match }) => {
-  let detailsComponent;
-  switch (match.params.name) {
-    case 'programas_sociais':
-      detailsComponent = <ContextDetails contextData={this.state.cidadao.contextos.find((el) => el.nome === 'Programas Sociais')} />;
-      break;
-    case 'receita':
-      detailsComponent = <ContextDetails contextData={this.state.cidadao.contextos.find((el) => el.nome === 'Receita')} />;
-      break;
-    case 'trabalho':
-      detailsComponent = <ContextDetails contextData={this.state.cidadao.contextos.find((el) => el.nome === 'Trabalho')} />;
-      break;
-    case 'justica':
-      detailsComponent = <ContextDetails contextData={this.state.cidadao.contextos.find((el) => el.nome === 'Justiça')} />;
-      break;
-    case 'saude':
-      detailsComponent = <ContextDetails contextData={this.state.cidadao.contextos.find((el) => el.nome === 'Saúde')} />;
-      break;
-    case 'educacao':
-      detailsComponent = <ContextDetails contextData={this.state.cidadao.contextos.find((el) => el.nome === 'Educação')} />;
-      break;
-    case 'previdencia':
-      detailsComponent = <ContextDetails contextData={this.state.cidadao.contextos.find((el) => el.nome === 'Previdência')} />;
-      break;
-    case 'grupo_familiar':
-      detailsComponent = <ContextDetails contextData={this.state.cidadao.contextos.find((el) => el.nome === 'Grupo Familiar')} />;
-      break;
-    default:
-      let personal_data = {
-        nome: this.state.cidadao.nome,
-        dadosPessoais: this.state.cidadao.dadosPessoais,
-      }
-      detailsComponent = <ContextDetails contextData={personal_data} />;
-      break;
-  }
-  
-  return (
-    detailsComponent
-  );
-};
-
-
-
-const About = () => (
-  <div>
-    <h2>Sobre</h2>
-  </div>
-);
-
-const Help = () => (
-  <div>
-    <h2>Ajuda</h2>
-  </div>
-);
 
 class App extends Component {
   constructor(props) {
@@ -101,22 +41,19 @@ class App extends Component {
     this.state = {
       isOpen: false,
       isAuthenticated: false,
+      version: '0.0.1-hackathon'
     };
     let isAuthenticated = localStorage.getItem('authenticated');
     if (isAuthenticated) {
       this.state.isAuthenticated = true;
-      this.loadFromMock();
     }
-  }
-
-  loadCachedData() {
-    
   }
 
   login(event) {
     event.preventDefault();
     this.setState({
-      isAuthenticated: true
+      isAuthenticated: true,
+      recentLogin: true,
     });
     localStorage.setItem('authenticated', true);
   }
@@ -137,7 +74,9 @@ class App extends Component {
 
 
   loadFromMock() {
-    this.state.cidadao = response;
+    this.setState({
+      cidadao: response
+    });
   }
 
   loadFromServer() {
@@ -159,15 +98,35 @@ class App extends Component {
     xhr.send(data);
   }
 
+  componentWillMount() {
+    
+  }
+
   render() {
+
+    if (this.state.recentLogin && this.state.isAuthenticated) {
+      this.setState({
+        recentLogin: false
+      });
+      return (<Redirect to="/context" />);
+    }
+    
+
     let menuOptions;
     let navbarLinks;
     if (this.state.isAuthenticated) {
+      if (this.state.cidadao === undefined || this.state.cidadao === null) {
+        this.loadFromMock();
+      }
+      // Usuário logado
       menuOptions = (
         <Col md="12" className="center">
+          <Route exact path="/" render={() => <ContextChooser data={this.state.cidadao} />} />
           <Route path="/project" component={Project} />
-          <Route path="/about" component={About} />
-          <Route path="/help" component={Help} />
+          <Route path="/logout" render={() => {
+            this.logout();
+            return (<Redirect to="/project" />);
+          }} />
           <Route path="/context" render={() => <ContextChooser data={this.state.cidadao} />} />
           <Route path="/details/:name" render={ 
             ({ match }) => {
@@ -232,39 +191,25 @@ class App extends Component {
       navbarLinks = (
         <Nav className="ml-auto" navbar>
           <NavItem>
-            <NavLink className="nav-link" to="/context/" activeClassName="active">Facilidades</NavLink>
+            <NavLink className="nav-link" to="/project/" activeClassName="active">Sobre</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink className="nav-link" to="/project/" activeClassName="active">Projeto</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink className="nav-link" to="/about/" activeClassName="active">Sobre</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink className="nav-link" to="/help/" activeClassName="active">Ajuda</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLinkBootstrap className="nav-link" href="#" onClick={this.logout.bind(this)}>Sair</NavLinkBootstrap>
+            <NavLink className="nav-link mdi mdi-account" to="/logout" activeClassName="active">Sair</NavLink>
+            {/* <NavLinkBootstrap className="nav-link" href="#" onClick={this.logout.bind(this)}>Sair</NavLinkBootstrap> */}
           </NavItem>
         </Nav>);
     } else {
       menuOptions = (
         <Col md="12" className="center">
+          <Route exact path="/" component={Project} />
+          <Route path="/context" component={Project} />
           <Route path="/project" component={Project} />
-          <Route path="/about" component={About} />
-          <Route path="/help" component={Help} />
           <Route path="/login" render={() => <LoginScreen login={this.login.bind(this)} />} />
         </Col>);
       navbarLinks = (
         <Nav className="ml-auto" navbar>
           <NavItem>
-            <NavLink className="nav-link" to="/project/" activeClassName="active">Projeto</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink className="nav-link" to="/about/" activeClassName="active">Sobre</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink className="nav-link" to="/help/" activeClassName="active">Ajuda</NavLink>
+            <NavLink className="nav-link" to="/project/" activeClassName="active">Sobre</NavLink>
           </NavItem>
           <NavItem>
             <NavLink className="nav-link" to="/login/" activeClassName="active">Acessar</NavLink>
@@ -287,6 +232,14 @@ class App extends Component {
                 {menuOptions}
             </Row>
           </Container>
+          <nav className="navbar  fixed-bottom navbar-light bg-light">
+            <span className="navbar-text mr-auto">
+              <span className="d-none d-lg-block d-xl-block">Versão {this.state.version}</span>
+            </span>
+            <span className="navbar-text">
+              Hackathon Dataprev 2017
+            </span>
+          </nav>
         </Container>
       </Router>
     );

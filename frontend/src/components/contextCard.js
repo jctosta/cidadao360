@@ -5,13 +5,10 @@ import {
 import { 
   Card, 
   CardImg, 
-  CardColumns,
 } from 'reactstrap';
 
 class ContextCard extends Component {
-  constructor(props) {
-    super(props);
-  }
+  
   render() {
     return (
       <Link to={this.props.to}>

@@ -6,6 +6,7 @@
     "bootstrap": "^4.0.0-beta",
     "jquery": "^3.2.1",
     "marked": "^0.3.6",
+    "mdi": "^2.0.46",
     "raw-loader": "^0.5.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",

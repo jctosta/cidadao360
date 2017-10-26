@@ -5,5 +5,14 @@ import 'bootstrap/dist/css/bootstrap.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { Router } from 'react-router';
+import createBrowserHistory from 'history/createBrowserHistory';
+
+const history = createBrowserHistory();
+
+ReactDOM.render(
+<Router history={history}>
+  <App/>
+</Router>
+, document.getElementById('root'));
 registerServiceWorker();
