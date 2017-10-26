@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+
 import { 
   Card, 
   CardImg, 
   CardColumns,
 } from 'reactstrap';
+
+import ContextCard from './contextCard';
+
 import previdencia from '../images/previdencia.svg';
 import trabalho from '../images/trabalho.svg';
 import receita from '../images/receita.svg';
@@ -19,14 +23,47 @@ import {
 } from 'react-router-dom'
 
 class ContextChooser extends Component {
-  testEvent() {
-    console.log("Elemento clicado.");
+  constructor(props) {
+    super(props);
   }
+  
   render() {
+
+    let cards = [];
+
+    let personal_data = {
+      nome: this.props.data.nome,
+      dadosPessoais: this.props.data.dadosPessoais,
+    }
+
+    cards.push(<ContextCard src={cidadao_360} data={personal_data} to="/details/cidadao-360/" />);
+
+    this.props.data.contextos.forEach((c) => {
+    
+      if (c.nome === 'Programas Sociais') {
+        cards.push(<ContextCard src={programas_sociais} data={c} to="/details/programas_sociais" />)
+      } else if (c.nome === 'Receita') {
+        cards.push(<ContextCard src={receita} data={c} to="/details/receita" />)
+      } else if (c.nome === 'Trabalho') {
+        cards.push(<ContextCard src={trabalho} data={c} to="/details/trabalho" />)
+      } else if (c.nome === 'Justiça') {
+        cards.push(<ContextCard src={justica} data={c} to="/details/justica" />)
+      } else if (c.nome === 'Saúde') {
+        cards.push(<ContextCard src={saude} data={c} to="/details/saude" />)
+      } else if (c.nome === 'Educação') {
+        cards.push(<ContextCard src={educacao} data={c} to="/details/educacao" />)
+      } else if (c.nome === 'Previdência') {
+        cards.push(<ContextCard src={previdencia} data={c} to="/details/previdencia" />)
+      } else if (c.nome === 'Grupo Familiar') {
+        cards.push(<ContextCard src={programas_sociais} data={c} to="/details/grupo_familiar" />)
+      }
+    });
+
     return (
       <div className="center">
         <CardColumns>
-          <Link to="/details/previdencia/">
+          { cards }
+          {/* <Link to="/details/previdencia/">
             <Card className="context-card">
               <CardImg top width="100%" src={previdencia} alt="Previdência" />
             </Card>
@@ -70,7 +107,7 @@ class ContextChooser extends Component {
             <Card className="context-card">
               <CardImg width="100%" src={programas_sociais} alt="Programas Sociais" />
             </Card>
-          </Link>
+          </Link> */}
         </CardColumns>
       </div>
     );

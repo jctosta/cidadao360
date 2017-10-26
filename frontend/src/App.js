@@ -6,10 +6,11 @@ import {
   BrowserRouter as Router,
   Route,
   Link,
-  NavLink
+  NavLink,
+  Redirect
 } from 'react-router-dom'
 
-import response from './mock/hbase_response.json';
+import response from './mock/template_service.json';
 
 // Reactstrap - Bootstrap components
 import { 
@@ -21,26 +22,64 @@ import {
   NavbarToggler, 
   NavbarBrand, 
   Nav, 
-  NavItem
+  NavItem,
+  NavLink as NavLinkBootstrap,
+  Jumbotron,
+  Button
 } from 'reactstrap';
 
 // Componentes da Aplicação
 import ContextChooser from './components/contextChooser';
 import ContextDetails from './components/contextDetails';
+import LoginScreen from './components/login';
+import Project from './components/projeto';
 
 const Context = () => (
-  <ContextChooser />
+  <ContextChooser data={this.state.cidadao} />
 );
 
-const ContextDetailsComponent = ({ match }) => (
-  <ContextDetails contextName={match.params.name} />
-);
+const ContextDetailsComponent = ({ match }) => {
+  let detailsComponent;
+  switch (match.params.name) {
+    case 'programas_sociais':
+      detailsComponent = <ContextDetails contextData={this.state.cidadao.contextos.find((el) => el.nome === 'Programas Sociais')} />;
+      break;
+    case 'receita':
+      detailsComponent = <ContextDetails contextData={this.state.cidadao.contextos.find((el) => el.nome === 'Receita')} />;
+      break;
+    case 'trabalho':
+      detailsComponent = <ContextDetails contextData={this.state.cidadao.contextos.find((el) => el.nome === 'Trabalho')} />;
+      break;
+    case 'justica':
+      detailsComponent = <ContextDetails contextData={this.state.cidadao.contextos.find((el) => el.nome === 'Justiça')} />;
+      break;
+    case 'saude':
+      detailsComponent = <ContextDetails contextData={this.state.cidadao.contextos.find((el) => el.nome === 'Saúde')} />;
+      break;
+    case 'educacao':
+      detailsComponent = <ContextDetails contextData={this.state.cidadao.contextos.find((el) => el.nome === 'Educação')} />;
+      break;
+    case 'previdencia':
+      detailsComponent = <ContextDetails contextData={this.state.cidadao.contextos.find((el) => el.nome === 'Previdência')} />;
+      break;
+    case 'grupo_familiar':
+      detailsComponent = <ContextDetails contextData={this.state.cidadao.contextos.find((el) => el.nome === 'Grupo Familiar')} />;
+      break;
+    default:
+      let personal_data = {
+        nome: this.state.cidadao.nome,
+        dadosPessoais: this.state.cidadao.dadosPessoais,
+      }
+      detailsComponent = <ContextDetails contextData={personal_data} />;
+      break;
+  }
+  
+  return (
+    detailsComponent
+  );
+};
 
-const Project = () => (
-  <div>
-    <h2>Projeto</h2>
-  </div>
-);
+
 
 const About = () => (
   <div>
@@ -60,24 +99,45 @@ class App extends Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false
+      isOpen: false,
+      isAuthenticated: false,
     };
-    this.loadFromMock();
+    let isAuthenticated = localStorage.getItem('authenticated');
+    if (isAuthenticated) {
+      this.state.isAuthenticated = true;
+      this.loadFromMock();
+    }
   }
+
+  loadCachedData() {
+    
+  }
+
+  login(event) {
+    event.preventDefault();
+    this.setState({
+      isAuthenticated: true
+    });
+    localStorage.setItem('authenticated', true);
+  }
+
+  logout() {
+    this.setState({
+      isAuthenticated: false
+    });
+    localStorage.removeItem('authenticated');
+  }
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
     });
   }
 
+
+
   loadFromMock() {
-    response.Row.forEach((r) => {
-      console.log(`Row key: ${window.atob(r.key)}`);
-      r.Cell.forEach((c) => {
-        console.log(`Cell Column: ${window.atob(c.column)}\nCell Value: ${window.atob(c.$)}`);
-      });
-    });
-    //console.log(response);
+    this.state.cidadao = response;
   }
 
   loadFromServer() {
@@ -100,39 +160,131 @@ class App extends Component {
   }
 
   render() {
+    let menuOptions;
+    let navbarLinks;
+    if (this.state.isAuthenticated) {
+      menuOptions = (
+        <Col md="12" className="center">
+          <Route path="/project" component={Project} />
+          <Route path="/about" component={About} />
+          <Route path="/help" component={Help} />
+          <Route path="/context" render={() => <ContextChooser data={this.state.cidadao} />} />
+          <Route path="/details/:name" render={ 
+            ({ match }) => {
+              let detailsComponent;
+              switch (match.params.name) {
+                case 'programas_sociais':
+                  detailsComponent = <ContextDetails 
+                    contextName={match.params.name}
+                    contextData={this.state.cidadao.contextos.find((el) => el.nome === 'Programas Sociais')} />;
+                  break;
+                case 'receita':
+                  detailsComponent = <ContextDetails 
+                    contextName={match.params.name}
+                    contextData={this.state.cidadao.contextos.find((el) => el.nome === 'Receita')} />;
+                  break;
+                case 'trabalho':
+                  detailsComponent = <ContextDetails
+                    contextName={match.params.name} 
+                    contextData={this.state.cidadao.contextos.find((el) => el.nome === 'Trabalho')} />;
+                  break;
+                case 'justica':
+                  detailsComponent = <ContextDetails 
+                    contextName={match.params.name}
+                    contextData={this.state.cidadao.contextos.find((el) => el.nome === 'Justiça')} />;
+                  break;
+                case 'saude':
+                  detailsComponent = <ContextDetails 
+                    contextName={match.params.name}
+                    contextData={this.state.cidadao.contextos.find((el) => el.nome === 'Saúde')} />;
+                  break;
+                case 'educacao':
+                  detailsComponent = <ContextDetails 
+                    contextName={match.params.name}
+                    contextData={this.state.cidadao.contextos.find((el) => el.nome === 'Educação')} />;
+                  break;
+                case 'previdencia':
+                  detailsComponent = <ContextDetails 
+                    contextName={match.params.name}
+                    contextData={this.state.cidadao.contextos.find((el) => el.nome === 'Previdência')} />;
+                  break;
+                case 'grupo_familiar':
+                  detailsComponent = <ContextDetails 
+                    contextName={match.params.name}
+                    contextData={this.state.cidadao.contextos.find((el) => el.nome === 'Grupo Familiar')} />;
+                  break;
+                default:
+                  let personal_data = {
+                    nome: this.state.cidadao.nome,
+                    dadosPessoais: this.state.cidadao.dadosPessoais,
+                  }
+                  detailsComponent = <ContextDetails 
+                    isProfile={true}
+                    contextName={match.params.name}
+                    contextData={personal_data}
+                    contextList={this.state.cidadao.contextos} />;
+                  break;
+              }
+              
+              return ( detailsComponent ) 
+            } } />
+        </Col>);
+      navbarLinks = (
+        <Nav className="ml-auto" navbar>
+          <NavItem>
+            <NavLink className="nav-link" to="/context/" activeClassName="active">Facilidades</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink className="nav-link" to="/project/" activeClassName="active">Projeto</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink className="nav-link" to="/about/" activeClassName="active">Sobre</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink className="nav-link" to="/help/" activeClassName="active">Ajuda</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLinkBootstrap className="nav-link" href="#" onClick={this.logout.bind(this)}>Sair</NavLinkBootstrap>
+          </NavItem>
+        </Nav>);
+    } else {
+      menuOptions = (
+        <Col md="12" className="center">
+          <Route path="/project" component={Project} />
+          <Route path="/about" component={About} />
+          <Route path="/help" component={Help} />
+          <Route path="/login" render={() => <LoginScreen login={this.login.bind(this)} />} />
+        </Col>);
+      navbarLinks = (
+        <Nav className="ml-auto" navbar>
+          <NavItem>
+            <NavLink className="nav-link" to="/project/" activeClassName="active">Projeto</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink className="nav-link" to="/about/" activeClassName="active">Sobre</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink className="nav-link" to="/help/" activeClassName="active">Ajuda</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink className="nav-link" to="/login/" activeClassName="active">Acessar</NavLink>
+          </NavItem>
+        </Nav>);
+    }
+
     return (
       <Router>
-        <Container>
-          
-          <Navbar light expand="md">
+        <Container fluid>
+          <Navbar color="dark" dark fixed="top" expand="md" id="mainNavbar">
             <NavbarBrand tag={Link} to="/context">Cidadão 360</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
-              <Nav className="ml-auto" navbar>
-                <NavItem>
-                  <NavLink className="nav-link" to="/context/" activeClassName="active">Facilidades</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink className="nav-link" to="/project/" activeClassName="active">Projeto</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink className="nav-link" to="/about/" activeClassName="active">Sobre</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink className="nav-link" to="/help/" activeClassName="active">Ajuda</NavLink>
-                </NavItem>
-              </Nav>
+              {navbarLinks}
             </Collapse>
           </Navbar>
-          <Container>
+          <Container className="containerPadding main-container">
               <Row>
-                <Col md="12" className="center">
-                  <Route path="/project" component={Project} />
-                  <Route path="/about" component={About} />
-                  <Route path="/help" component={Help} />
-                  <Route path="/context" component={Context} />
-                  <Route path="/details/:name" component={ContextDetailsComponent} />
-                </Col>
+                {menuOptions}
             </Row>
           </Container>
         </Container>

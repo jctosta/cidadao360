@@ -87,6 +87,10 @@ body {
   margin: 0 auto;
 }
 
+.center-text {
+  text-align: center;
+}
+
 .context-card {
 
 }
@@ -96,7 +100,35 @@ body {
   /* box-shadow: 5px 5px 15px -7px #000000; */
 }
 
+.containerPadding {
+  padding-top: 60px;
+}
+
+.login-form {
+  max-width: 400px;
+}
+
+.background-bsb { 
+  background: url(./images/background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.navbar-transparent {
+  background: rgba(52, 58, 64, 0.74) !important;
+}
+.jumbotron-transparent {
+  background: rgba(255, 255, 255, 0.74) !important;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.main-container {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
 }

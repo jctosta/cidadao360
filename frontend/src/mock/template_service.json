@@ -1,0 +1,280 @@
+{
+  "id": "1",
+  "nome": "JOSE AUGUSTO GOMES",
+  "dadosPessoais": [
+    {
+      "label": "Data de Nascimento",
+      "valor": "13/03/1980"
+    },
+    {
+      "label": "Sexo",
+      "valor": "Masculino"
+    },
+    {
+      "label": "Endereço",
+      "valor": "Rua das Couves, 45 - Curitiba, PA"
+    },
+    {
+      "label": "Nome da Mãe",
+      "valor": "JOSEFINA DA SILVA GOMES"
+    },
+    {
+      "label": "Nacionalidade",
+      "valor": "Brasileiro"
+    },
+    {
+      "label": "Naturalidade",
+      "valor": "Rio de Janeiro"
+    },
+    {
+      "label": "Email",
+      "valor": "augusto.gomes@gmail.com"
+    },
+    {
+      "label": "Telefone Fixo",
+      "valor": "-"
+    },
+    {
+      "label": "Telefone Celular",
+      "valor": "(41) 99999-7744"
+    }
+  ],
+  "contextos": [
+    {
+      "id": "1",
+      "nome": "Programas Sociais",
+      "informacoes": [
+        {
+          "label": "NIS",
+          "valor": "106.45411.57-1"
+        }
+      ],
+      "eventos": [
+        {
+          "id": "1",
+          "titulo": "Pagamento do Bolsa Família",
+          "descricao": "Pagamento do Bolsa Família realizado, referente à competência 08/2017.",
+          "data_hora": "01/09/2017",
+          "valor": 341.00
+        },
+        {
+          "id": "2",
+          "titulo": "Pagamento do Bolsa Família",
+          "descricao": "Pagamento do Bolsa Família realizado, referente à competência 07/2017.",
+          "data_hora": "01/08/2017",
+          "valor": 341.00
+        },
+        {
+          "id": "3",
+          "titulo": "Pagamento do Bolsa Família",
+          "descricao": "Pagamento do Bolsa Família realizado, referente à competência 06/2017.",
+          "data_hora": "01/07/2017",
+          "valor": 341.00
+        },
+        {
+          "id": "4",
+          "titulo": "Pagamento do Bolsa Família",
+          "descricao": "Pagamento do Bolsa Família realizado, referente à competência 05/2017.",
+          "data_hora": "01/06/2017",
+          "valor": 341.00
+        },
+        {
+          "id": "5",
+          "titulo": "Pagamento do Bolsa Família",
+          "descricao": "Pagamento do Bolsa Família realizado, referente à competência 04/2017.",
+          "data_hora": "01/05/2017",
+          "valor": 341.00
+        }
+      ],
+      "notificacoes": [
+        {
+          "id": "1",
+          "titulo": "ID Jovem",
+          "descricao": "Você tem familiares que podem usufruir do ID Jovem: meia-entrada em eventos e no cinema, viajar de graça ou pagando menos e gratuidade na inscrição do Exame Nacional do Ensino Médio (Enem). [Saiba mais](http://www.brasil.gov.br/cidadania-e-justica/2017/05/conheca-o-passo-a-passo-para-emissao-da-id-jovem)",
+          "data_hora": "26/10/2017",
+          "imagem_url": "idjovem_img.png"
+        },
+        {
+          "id": "2",
+          "titulo": "Revisão Cadastral CADUNICO",
+          "descricao": "Você precisa comparecer ao setor do Cadastro Único em seu município, para atualizar seus dados. [Saiba mais](http://www.brasil.gov.br/cidadania-e-justica/2015/09/atualizacao-do-cadastro-unico-garante-beneficios-sociais)",
+          "data_hora": "26/10/2017",
+          "imagem_url": "cadunico.png"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "nome": "Receita",
+      "informacoes": [
+        {
+          "label": "CPF",
+          "valor": "164.583.398-97"
+        }
+      ],
+      "eventos": [
+        {
+          "id": "11",
+          "titulo": "Previsão de férias de empregado doméstico",
+          "descricao": "Este é o início das férias programadas para o empregado José Silva.",
+          "data_hora": "01/11/2017",
+          "valor": ""
+        },
+        {
+          "id": "12",
+          "titulo": "Pagamento do DAE (Documento de Arrecadação do eSocial)",
+          "descricao": "Pagamento do DAE (Documento de Arrecadação do eSocial) identificado, referente à competência 04/2017.",
+          "data_hora": "10/05/2017",
+          "valor": "947,00"
+        },
+        {
+          "id": "13",
+          "titulo": "Restituição de IR liberada",
+          "descricao": "Sua restituição do Imposto de Renda já foi liberada. Verifique sua conta bancária.",
+          "data_hora": "26/10/2017",
+          "valor": "257,90"
+        },
+        {
+          "id": "14",
+          "titulo": "Declaração de IR recebida",
+          "descricao": "Sua declaração de Imposto de Renda foi recebida.",
+          "data_hora": "01/04/2017",
+          "valor": ""
+        }
+      ],
+      "notificacoes": [
+        {
+          "id": "11",
+          "titulo": "Restituição de IR",
+          "descricao": "Sua restituição do Imposto de Renda já foi liberada. Verifique sua conta bancária.",
+          "data_hora": "26/10/2017",
+          "imagem_url": "fazenda.png"
+        },
+        {
+          "id": "12",
+          "titulo": "Último dia para a declaração do IR",
+          "descricao": "Hoje é o último dia para a declaração do Imposto de Renda.",
+          "data_hora": "28/04/2017",
+          "imagem_url": ""
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "nome": "Trabalho",
+      "informacoes": [
+        {
+          "label": "NIT",
+          "valor": "106.45411.57-1"
+        },
+        {
+          "label": "CTPS",
+          "valor": "0392483"
+        },
+        {
+          "label": "Série",
+          "valor": "001-0"
+        },
+        {
+          "label": "UF",
+          "valor": "MG"
+        }
+      ],
+      "eventos": [
+        {
+          "id": "21",
+          "titulo": "Vaga de emprego encontrada para seu perfil",
+          "descricao": "Vaga de emprego disponível! Cargo: Auxiliar Administrativo. Empregador: BJI Negócios Imobiliários. [Inscreva-se](https://empregabrasil.mte.gov.br/)",
+          "data_hora": "10/01/2017",
+          "valor": ""
+        },
+        {
+          "id": "22",
+          "titulo": "Requerimento ao Seguro-Desemprego",
+          "descricao": "Seu requerimento ao Seguro-Desemprego foi recebido.",
+          "data_hora": "08/01/2017",
+          "valor": ""
+        },
+        {
+          "id": "23",
+          "titulo": "FGTS Disponível para Saque",
+          "descricao": "Seu FGTS já está disponível para saque. [Saiba mais](http://www.caixa.gov.br/beneficios-trabalhador/fgts/condicoes-e-documentos-para-saque-do-FGTS/Paginas/default.aspx)",
+          "data_hora": "07/01/2017",
+          "valor": "12.467,33"
+        },
+        {
+          "id": "24",
+          "titulo": "Demissão informada pelo Empregador",
+          "descricao": "Demissão informada pelo Empregador: Sapatos Comércios.",
+          "data_hora": "02/01/2017",
+          "valor": ""
+        }
+      ],
+      "notificacoes": [
+        {
+          "id": "21",
+          "titulo": "Parcela de Seguro-Desemprego liberada",
+          "descricao": "A primeira parcela do Seguro-Desemprego já está disponível para saque. Valor: R$900,00.",
+          "data_hora": "26/10/2017",
+          "imagem_url": "trabalho.png"
+        },
+        {
+          "id": "22",
+          "titulo": "Vaga de Emprego",
+          "descricao": "Vaga de emprego disponível! Cargo: Auxiliar Administrativo. Empregador: BJI Negócios Imobiliários. [Inscreva-se](https://empregabrasil.mte.gov.br/)",
+          "data_hora": "20/02/2017",
+          "imagem_url": "trabalho.png"
+        },
+        {
+          "id": "23",
+          "titulo": "Abono Salarial",
+          "descricao": "Seu Abono Salarial já está disponível para saque. [Saiba mais](http://www.caixa.gov.br/beneficios-trabalhador/pis/Paginas/default.aspx)",
+          "data_hora": "20/11/2016",
+          "imagem_url": "trabalho.png"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "nome": "Previdência",
+      "informacoes": [
+        {
+          "label": "NIS",
+          "valor": "106.45411.57-1"
+        }
+      ],
+      "eventos": [
+        {
+          "id": "31",
+          "titulo": "Recolhimento de Contribuição Previdenciária",
+          "descricao": "Recolhimento de contribuição previdenciária realizado por INDUSTRIAS MTS LTDA, referente à competência 05/2017.",
+          "data_hora": "10/06/2017",
+          "valor": "257,90"
+        },
+        {
+          "id": "32",
+          "titulo": "Recolhimento de Contribuição Previdenciária",
+          "descricao": "Recolhimento de contribuição previdenciária realizado por INDUSTRIAS MTS LTDA, referente à competência 04/2017.",
+          "data_hora": "10/05/2017",
+          "valor": "257,90"
+        },
+        {
+          "id": "33",
+          "titulo": "Recolhimento de Contribuição Previdenciária",
+          "descricao": "Recolhimento de contribuição previdenciária realizado por INDUSTRIAS MTS LTDA, referente à competência 03/2017.",
+          "data_hora": "10/04/2017",
+          "valor": "257,90"
+        }
+      ],
+      "notificacoes": [
+        {
+          "id": "31",
+          "titulo": "Recadastramento previdenciário",
+          "descricao": "Não deixe de fazer o recadastramento previdênciario. Se você ainda não fez, procure a agencia mais próxima.",
+          "data_hora": "10/05/2017",
+          "imagem_url": ""
+        }
+      ]
+    }
+  ]
+}
