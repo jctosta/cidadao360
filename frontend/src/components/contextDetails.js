@@ -74,6 +74,9 @@ class ContextDetails extends Component {
             <TimelineEvent
               title={ev.titulo}
               createdAt={ev.data_hora}
+              style={{ fontSize: 16 }}
+              titleStyle={{ fontWeight: 'bold' }}
+              iconColor="#03a9f4"
               icon={<i className="material-icons md-18">event_available</i>}>
               {<ReactMarkdown source={ev.descricao} />}
             </TimelineEvent>);
@@ -87,7 +90,8 @@ class ContextDetails extends Component {
               title={not.titulo}
               titleStyle={{ fontWeight: "bold" }}
               createdAt={not.data_hora}
-              icon={<i className="material-icons md-18">notification</i>}
+              style={{ fontSize: 16 }}
+              icon={<i className="material-icons md-18">notifications</i>}
               iconColor="#03a9f4"
             ><ReactMarkdown source={not.descricao} /></TimelineEvent>
           );
@@ -107,10 +111,8 @@ class ContextDetails extends Component {
 
       return (
         <div>
-          <h1 class="display-3">{this.props.contextData.nome}</h1>
-          <p class="lead">
-            Notificações e eventos do contexto {this.props.contextData.nome}
-          </p>
+          <h3>{this.props.contextData.nome}</h3>
+          <p class="lead">Notificações e eventos do contexto {this.props.contextData.nome}</p>
 
           <Nav pills fill>
             <NavItem>
